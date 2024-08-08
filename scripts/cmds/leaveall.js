@@ -1,32 +1,21 @@
-module.exports = {
+ {
 	config: {
 		name: "leaveall",
-    aliases: ["la"],
-		version: "1.0",
-		author: "otiney fix by kivv",
-		countDown: 5,
+		author: "cliff",
+		version: "1.5.0",
+		countDown: 10,
 		role: 2,
+		category: "Admin",
 		shortDescription: {
-			vi: "",
-			en: ""
-		},
-		longDescription: {
-			vi: "",
-			en: "  "
-		},
-		category: "owner",
-		guide: {
-			vi: "",
-			en: ""
-    }
- },
-  onStart: async function ({ api, args, message, event }) {
-    const threadList = await api.getThreadList(100, null, ["INBOX"]);
-    const botUserID = api.getCurrentUserID();
-    threadList.forEach(threadInfo => {
-        if (threadInfo.isGroup && threadInfo.threadID !== event.threadID) {
-            api.removeUserFromGroup(botUserID, threadInfo.threadID);
-        }
-    });
-}
-}
+			en: "leave all group"
+		}
+	},
+
+	onStart: async function ({ api, event, args }) {
+		return api.getThreadList(100, null, ["INBOX"], (err, list) => {
+			if (err) throw err;
+			list.forEach(item => (item.isGroup == true && item.threadID != event.threadID) ? api.removeUserFromGroup(api.getCurrentUserID(), item.threadID) : '');
+			api.sendMessage('Out of the whole group successfully', event.threadID);
+		});
+	}
+};
