@@ -32,15 +32,15 @@ config: {
 
     const ownerInfo = {
 
-      name: '𝗝𝗔𝗦𝗥𝗘𝗟 𝗜𝗗𝗞',
+      name: '𝗔𝗽𝗽𝗹𝗲 𝗬𝗽𝗮𝗿𝗿𝗮𝗴𝘂𝗶𝗿𝗿𝗲',
 
-      gender: '𝗠𝗔𝗟𝗘',
+      gender: 'FEMALE',
 
-      age: '18',
+      age: '15',
 
-      height: '𝟱 𝟳',
+      height: '',
 
-      facebookLink: 'https://www.facebook.com/jasrelking17',
+      facebookLink: 'https://www.facebook.com/apple.vzvz',
 
       nick: '𝗝𝗔𝗦'
 
